@@ -1,3 +1,4 @@
+python==3.10
 streamlit
 spacy==3.5.0
 thinc==8.1.7
