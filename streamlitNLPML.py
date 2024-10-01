@@ -16,6 +16,7 @@ from wordcloud import WordCloud
 import re 
 import os
 from dotenv import load_dotenv
+import subprocess
 
 
 #darle un nombre a la pestaña de la aplicación
@@ -144,6 +145,10 @@ def analyze_sentiment(text):
 #aplicamos el análisis de sentimiento a cada columna
 for category in ['COMIDA', 'LOCACIÓN', 'PRECIO', 'SERVICIO']:
     df[f'{category}_SENTIMENT'] = df[category].apply(analyze_sentiment)
+
+# Ejecutar el script de instalación del modelo
+subprocess.call(["python", "setup.py"])
+
 
 #implementamos el modelo preentrenado 'en_core_web_sm'
 nlp1 = spacy.load("en_core_web_sm")
