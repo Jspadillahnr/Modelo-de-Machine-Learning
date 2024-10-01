@@ -28,7 +28,7 @@ st.set_page_config(page_title="China Garden ML", layout="wide")
 #subimos las variables de entorno para poder cargar las credenciales de nuestro google cloud de manera segura
 
 # Cargar las variables de entorno desde el archivo .env
-load_dotenv(dotenv_path='C:/Users/LENOVO/Documents/Henry/Proyecto Grupal Final/ML_2SPRINT/Deployment final/googlecloudkeys.env')
+load_dotenv(dotenv_path='googlecloudkeys.env')
 
 
 # Acceder a las variables de entorno necesarias
@@ -88,7 +88,7 @@ df = load_data(client, 'Reviews-google_ML')
 #***********************subir el modelo ML al github****************************************
 @st.cache_resource
 def cargar_modelo():
-    return spacy.load('C:/Users/LENOVO/Documents/Henry/Proyecto Grupal Final/ML_2SPRINT/modelo_ner_comida_experiencia')
+    return spacy.load('modelo_ner_comida_experiencia')
 
 # Cargar el modelo usando la función cacheada
 modelo_ner = cargar_modelo()
@@ -180,7 +180,7 @@ st.subheader('Elección Estado, Ciudad para Análisis\U0001F9E0')
 
 #**************subir el Json a geojason a github*******************************************+
 #cargar el archivo GeoJSON localmente. Este archivo tiene las coordenadas que delimitan a cada uno de los estados.
-with open('C:/Users/LENOVO/Documents/Henry/Proyecto Grupal Final/ML_2SPRINT/us-states.json') as f:
+with open('us-states.json') as f:
     geojson_data = json.load(f)
 
 #diccionario con coordenadas y con los colores personalizados con los que se dibujaran los estados del Este en el mapa
